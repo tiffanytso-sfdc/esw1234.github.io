@@ -1,8 +1,17 @@
 <html>
   <head></head>
+  <title>NGC E2E</title>
   <body>
-    <script>
-      
+    <script type='text/javascript'
+            id='init-agentforce-messaging'
+            src='https://orgfarm-77791c52bd.test1.lightning.pc-rnd.force.com/embeddedservice/agentforceMessaging/0.3/init.js'
+            onload='agentforce_messaging.init(
+              '0XxSB000000YBM10AO',
+              'https://orgfarm-77791c52bd.test1.lightning.pc-rnd.force.com',
+              'https://orgfarm-77791c52bd.test1.lightning.pc-rnd.force.com/ESWNGC11746199002281',
+              {}
+            onerror='console.error('Error loading Agentforce messaging.')'
+            )'>
     </script>
   </body>
 </html>
