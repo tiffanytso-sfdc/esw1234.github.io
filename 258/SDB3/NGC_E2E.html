@@ -11,9 +11,17 @@
                     "siteUrl": "https://orgfarm-6d8ceebf0d.test1.my.pc-rnd.site.com/NGCE2E",
                     "agentApiConfiguration": {
                             "agentId":"0XxSB000000aIOD0A2", 
-                            "domainUrl":"https://orgfarm-6d8ceebf0d.test1.my.pc-rnd.salesforce.com"
+                            "domainUrl":"https://orgfarm-6d8ceebf0d.test1.my.pc-rnd.salesforce.com",
+                      		    "endpoint": "https://test.api.salesforce.com/einstein/ai-agent/v1/agents/{AGENT_ID}/sessions", 
+		                          "authTokenEndpoint": "https://orgfarm-6d8ceebf0d.test1.my.pc-rnd.site.com/NGCE2E/agentforce/bootstrap?agentid=0XxSB000000aIOD0A2",
+                	            "voiceEndpoint": "https://test.api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                      		    "enableStreaming": true
                     },
-                    "uiConfiguration": {}
+                    "uiConfiguration": {
+                      features: {
+                        voiceEnabled: true
+                      }
+                    }
             });'>
 </script>
   </body>
