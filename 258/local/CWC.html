@@ -1,0 +1,27 @@
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  	<title>CWC</title>
+  </head>
+  <body>
+    <script type='text/javascript'>
+	function initAgentforceMessaging() {
+		try {
+			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			agentforce_messaging.init(
+				'00DSG00000Rxy5R',
+				'NGC_E2E',
+				'https://orgfarm-74e636d969.test1.my.pc-rnd.site.com/ESWNGCE2E1746736953285',
+				{
+					scrt2URL: 'https://orgfarm-74e636d969.test1.my.pc-rnd.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-74e636d969.test1.my.pc-rnd.site.com/ESWNGCE2E1746736953285/assets/js/init.js' onload='initAgentforceMessaging()'></script>
+  </body>
+</html>
