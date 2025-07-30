@@ -1,6 +1,6 @@
 <html>
   <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   	<title>CWC</title>
   </head>
   <body>
@@ -10,11 +10,11 @@
 			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			agentforce_messaging.init(
-				'00DSG00000Rxy5R',
-				'NGC_E2E',
-				'https://orgfarm-74e636d969.test1.my.pc-rnd.site.com/ESWNGCE2E1746736953285',
+				'00Dxx00JsjUsYQK',
+				'CWC',
+				'https://orgfarm-dd0aed5083.my.site-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev:6101/ESWCWC1753831448368',
 				{
-					scrt2URL: 'https://orgfarm-74e636d969.test1.my.pc-rnd.salesforce-scrt.com'
+					scrt2URL: 'http://orgfarm-dd0aed5083.my.salesforce-scrt-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev'
 				}
 			);
 		} catch (err) {
@@ -22,6 +22,29 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-74e636d969.test1.my.pc-rnd.site.com/ESWNGCE2E1746736953285/assets/js/init.js' onload='initAgentforceMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-dd0aed5083.my.site-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev:6101/ESWCWC1753831448368/assets/js/init.js' onload='initAgentforceMessaging()'></script>
   </body>
 </html>
+
+<!-- MIAW -->
+<!-- 
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00Dxx00JsjUsYQK',
+				'CWC',
+				'https://orgfarm-dd0aed5083.my.site-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev:6101/ESWCWC1753831448368',
+				{
+					scrt2URL: 'http://orgfarm-dd0aed5083.my.salesforce-scrt-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-dd0aed5083.my.site-com.d3jkwca39izo17ojpjc8quvb10.wa.crm.dev:6101/ESWCWC1753831448368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+--> 
