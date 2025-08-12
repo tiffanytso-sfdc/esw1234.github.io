@@ -1,9 +1,12 @@
-<script type='text/javascript'>
-	function initEmbeddedMessaging() {
+<html>
+  <head><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"></head>
+  <body>
+    <script type='text/javascript'>
+	function initAgentforceMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.init(
+			agentforce_messaging.init(
 				'00Dxx0070fCIszU',
 				'CWC_TEST_v1',
 				'https://orgfarm-800cc568e3.my.site-com.4ll9w8w4dhgb1b9etvdgh.wb.crm.dev:6101/ESWCWCTESTv11755040104025',
@@ -16,4 +19,7 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-800cc568e3.my.site-com.4ll9w8w4dhgb1b9etvdgh.wb.crm.dev:6101/ESWCWCTESTv11755040104025/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-800cc568e3.my.site-com.4ll9w8w4dhgb1b9etvdgh.wb.crm.dev:6101/ESWCWCTESTv11755040104025/assets/js/init.js' onload='initAgentforceMessaging()'></script>
+
+  </body>
+</html>
