@@ -9,7 +9,10 @@
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			window.addEventListener("onEmbeddedMessagingReady", e => {
-				embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ cartValue: "12345" });
+				embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
+					cartValue: "12345",
+					someThing: "420"
+				});
 
 				// embeddedservice_bootstrap.autoResponseAPI.removeAutoResponseParameters(["cartValue"]);
 			});
