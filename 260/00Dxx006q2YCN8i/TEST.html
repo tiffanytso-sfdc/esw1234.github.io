@@ -4,6 +4,17 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.devMode = true;
+			embeddedservice_bootstrap.settings.omitSandbox = true;
+
+			window.addEventListener("onEmbeddedMessagingReady", e => {
+				embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
+					cartValue: "12345",
+					someThing: "420"
+				});
+
+				// embeddedservice_bootstrap.autoResponseAPI.removeAutoResponseParameters(["cartValue"]);
+			});
 
 			embeddedservice_bootstrap.init(
 				'00Dfi100000czDl', // '00Dxx006q2YCN8i',
