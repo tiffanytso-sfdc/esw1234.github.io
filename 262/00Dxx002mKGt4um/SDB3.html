@@ -10,10 +10,12 @@
 			window.addEventListener("onEmbeddedMessagingReady", e => {
 				embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
 					cartValue: "12345",
-					someThing: "420"
+					someThing: "420",
+					surveyId: "PMJW5PD",
+					name: "Tiffany"
 				});
 
-				embeddedservice_bootstrap.autoResponseAPI.removeAutoResponseParameters(["cartValue"]);
+				embeddedservice_bootstrap.autoResponseAPI.removeAutoResponseParameters(["name", "surveyId"]); // cartValue
 			});
 
 			window.addEventListener("onEmbeddedMessageLinkClicked", e => {
