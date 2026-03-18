@@ -13,9 +13,10 @@
 			embeddedservice_bootstrap.settings.omitSandbox = true;
 
 			window.addEventListener("onEmbeddedMessagingReady", e => {
-				// embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
-				// 	language: "es"
-				// });
+				embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
+					language: "es",
+					someThing: "420"
+				});
 				
 				// 	embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
 				// 		cartValue: "12345",
