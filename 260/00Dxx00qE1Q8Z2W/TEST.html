@@ -1,6 +1,15 @@
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"></head>
   <body>
+	  <script>
+		window.addEventListener("onEmbeddedMessagingReady", e => {
+			embeddedservice_bootstrap.autoResponseAPI.setAutoResponseParameters({ 
+				language: "es"
+			});
+
+			// embeddedservice_bootstrap.autoResponseAPI.removeAutoResponseParameters(["language"]);
+		});
+	  </script>
     <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
