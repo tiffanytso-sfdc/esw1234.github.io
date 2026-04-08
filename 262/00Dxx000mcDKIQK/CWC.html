@@ -5,13 +5,13 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
 			embeddedservice_bootstrap.init(
-				'00Dxx000mcDKIQK',
-				'CWC',
+				'00DSB00000da1NJ', // '00Dxx000mcDKIQK',
+				'CWC10_External', // 'CWC',
 				'https://orgfarm-07891df66d.my.site-com.tyrxbvzka1qo14uw3lgujrqgq04pov.wc.crm.dev:6101/ESWCWC1775666454300',
 				{
-					scrt2URL: 'http://orgfarm-07891df66d.my.salesforce-scrt-com.tyrxbvzka1qo14uw3lgujrqgq04pov.wc.crm.dev'
+					// scrt2URL: 'http://orgfarm-07891df66d.my.salesforce-scrt-com.tyrxbvzka1qo14uw3lgujrqgq04pov.wc.crm.dev'
+					scrt2URL: 'https://orgfarm-46c4c41fb0.test1.my.pc-rnd.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
