@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Chat — my_deployment_264_3</title>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center;
+           justify-content: center; height: 100vh; margin: 0; background: #f4f6f9; }
+    .card { background: white; border-radius: 8px; padding: 2rem 3rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,.1); text-align: center; }
+    h1 { color: #1b5297; } p { color: #555; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Agentforce Enhanced Chat</h1>
+    <p>Deployment: <strong>my_deployment_264_3</strong></p>
+    <p>Release: <strong>264</strong></p>
+    <p>Click the chat bubble in the bottom-right corner to start a conversation.</p>
+  </div>
+
+  <!-- Salesforce Enhanced Chat Widget — Release 264 / CWC3 -->
+  <script type="text/javascript">
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = "en_US";
+        embeddedservice_bootstrap.init(
+          "00DQZ000009VR6n",
+          "my_deployment_264_3",
+          "https://https://orgfarm-96f9476be6.test2.my.pc-rnd.my.site.com/ESWmy_deployment_264_3",
+          {
+            scrt2URL: "https://https://orgfarm-96f9476be6.test2.my.pc-rnd.salesforce-scrt.com"
+          }
+        );
+      } catch (err) {
+        console.error("Error loading Enhanced Chat: ", err);
+      }
+    }
+  </script>
+  <script
+    type="text/javascript"
+    src="https://https://orgfarm-96f9476be6.test2.my.pc-rnd.salesforce-scrt.com/assets/js/bootstrap.min.js"
+    onload="initEmbeddedMessaging()">
+  </script>
+</body>
+</html>
