@@ -1,0 +1,24 @@
+<html>
+  <head></head>
+  <body>
+    <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00Dxx0000006HGl',
+				'CWC',
+				'https://orgfarm-fad9ddb01f-dev-ed.develop.my.site-com.di04emd0e5md1ij0vdvmjbkt.wc.crm.dev:6101/ESWCWC1778736347723',
+				{
+					scrt2URL: 'http://orgfarm-fad9ddb01f-dev-ed.develop.my.salesforce-scrt-com.di04emd0e5md1ij0vdvmjbkt.wc.crm.dev'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-fad9ddb01f-dev-ed.develop.my.site-com.di04emd0e5md1ij0vdvmjbkt.wc.crm.dev:6101/ESWCWC1778736347723/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+  </body>
+</html>
