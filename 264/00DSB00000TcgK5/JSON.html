@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+	<script "text/javascript">
+		window.addEventListener("onEmbeddedMessagingReady", () => {
+			// Embedded Messaging app ready
+			console.log("onEmbeddedMessagingReady event received");
+		});
+
+		window.addEventListener("onEmbeddedMessagingInitSuccess", () => {
+			console.log("Received 'onEmbeddedMessagingInitSuccess' event");
+		});
+
+		window.addEventListener("onEmbeddedMessagingInitError", () => {
+			console.log("Received 'onEmbeddedMessagingInitError' event");
+		});
+	</script>
+
+	<script type='text/javascript'>
+		function initCWC() {
+			try {
+				embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+				embeddedservice_bootstrap.settings.devMode = true;
+				//embeddedservice_bootstrap.settings.displayMode = 'inline';
+        
+				embeddedservice_bootstrap.init(
+				  '00DSB00000TcgK5',
+				  'CWC2',
+				  'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWC21759421967669',
+				  {
+					  scrt2URL: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com',
+					  pageName: 'snippetSettingsFile_JSON' // snippetSettingsFile_JSON, snippetSettingsFile_image, snippetSettings_invalid
+				  }
+			  );
+			} catch (err) {
+				console.error('Error loading Embedded Messaging: ', err);
+			}
+		};
+	</script>
+	<script type='text/javascript' src='https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWC21759421967669/assets/js/bootstrap.js' onload='initCWC()'></script>
+</body>
+</html>
