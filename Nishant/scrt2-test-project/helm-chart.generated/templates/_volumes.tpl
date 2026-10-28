@@ -1,3 +1,0 @@
-{{- define "armada.volumes" -}}
-{{- end -}}
-

@@ -1,2 +1,0 @@
-{{- define "armada.hpa" -}}
-{{- end -}}

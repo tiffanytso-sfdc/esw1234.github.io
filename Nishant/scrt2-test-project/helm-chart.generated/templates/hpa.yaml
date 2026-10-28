@@ -1,3 +1,0 @@
-{{ if (has .Values.falcon.environment_type (list "DEV" "TEST")) }}
-{{- include "armada.hpa" .}}
-{{ end }}

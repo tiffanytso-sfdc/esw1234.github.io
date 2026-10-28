@@ -1,2 +1,0 @@
-{{- define "armada.containers" -}}
-{{- end -}}
