@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Chat Setup Script - Automation Flow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .flow-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .step {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .step h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-size: 22px;
+        }
+
+        .step ul {
+            list-style: none;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .step li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .step li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: #4a5568;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .features {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .features h2 {
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .feature h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .command-box {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .arrow {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Enhanced Chat Setup Script</h1>
+            <p>Automated End-to-End Deployment Creation</p>
+        </div>
+
+        <div class="command-box">
+            $ ./setup-enhanced-chat-complete-auto.sh
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="flow-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>📋 Orgfarm Setup</h3>
+                <ul>
+                    <li>Checkout guidance</li>
+                    <li>Org authentication</li>
+                    <li>URL validation</li>
+                    <li>Auto-converts .force.com URLs</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>⚙️ Configuration</h3>
+                <ul>
+                    <li>Select MessagingChannel</li>
+                    <li>Name deployment</li>
+                    <li>Choose host domain</li>
+                    <li>GitHub Pages setup</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>🔧 Deployment Creation</h3>
+                <ul>
+                    <li>Verify channel exists</li>
+                    <li>Create via Connect API</li>
+                    <li>Auto-create Experience Site</li>
+                    <li>Auto-publish deployment</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>🌐 Site Details</h3>
+                <ul>
+                    <li>Site URL retrieval</li>
+                    <li>SCRT2 URL generation</li>
+                    <li>Last Published timestamp</li>
+                    <li>Deployment validation</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3>📄 Test Page</h3>
+                <ul>
+                    <li>Generate HTML with ECV2 snippet</li>
+                    <li>Create local test page</li>
+                    <li>Copy to shared repo</li>
+                    <li>Organize by username</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <h3>📤 Git Push</h3>
+                <ul>
+                    <li>Auto git pull --rebase</li>
+                    <li>Add & commit test page</li>
+                    <li>Push to GitHub</li>
+                    <li>Generate Pages URL</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">~1min</div>
+                <div class="stat-label">Total Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Time Saved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Steps Automated</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Manual Clicks</div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>✨ Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h4><span class="icon">🎯</span>One Command Setup</h4>
+                    <p>Single script creates deployment, site, and test page automatically</p>
+                </div>
+                <div class="feature">
+                    <h4><span class="icon">🧠</span>Smart Git Integration</h4>
+                    <p>Auto-detects repo, handles pull/rebase, organizes by username</p>
+                </div>
+                <div class="feature">
+                    <h4><span class="icon">🌐</span>Domain-Aware</h4>
+                    <p>GitHub Pages for git.soma, local pages for other domains</p>
+                </div>
+                <div class="feature">
+                    <h4><span class="icon">🔐</span>Safe & Validated</h4>
+                    <p>Confirmation prompts, error handling, manual fallback instructions</p>
+                </div>
+                <div class="feature">
+                    <h4><span class="icon">🤝</span>Team Friendly</h4>
+                    <p>Test pages organized by developer, easy sharing via GitHub Pages</p>
+                </div>
+                <div class="feature">
+                    <h4><span class="icon">⚡</span>Fast Iteration</h4>
+                    <p>Create new test deployments in seconds, not minutes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
