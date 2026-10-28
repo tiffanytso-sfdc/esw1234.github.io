@@ -72,11 +72,37 @@
 
             <div class="toc">
                 <strong>Quick Navigation:</strong>
-                <a href="#fixes-summary">All 11 Fixes Summary</a>
                 <a href="#package-contents">Package Contents & Quick Start</a>
+                <a href="#fixes-summary">All 11 Fixes Summary</a>
                 <a href="#detailed-tests">Detailed Test Cases</a>
                 <a href="#testing-checklist">Beta Testing Checklist</a>
             </div>
+        </div>
+
+        <!-- Package Contents -->
+        <div class="section" id="package-contents">
+            <h2>📦 Package Contents</h2>
+            <ul class="checklist">
+                <li><code>setup-enhanced-chat-complete-auto.sh</code> - Main script (48KB)</li>
+                <li><code>republish-enhanced-chat.sh</code> - Helper script (3.6KB)</li>
+                <li><code>ENHANCED_CHAT_SETUP_GUIDE.md</code> - User guide (12KB)</li>
+                <li><code>enhanced-chat-setup-demo.html</code> - Visual demo (9.9KB)</li>
+            </ul>
+
+            <h3>Quick Start</h3>
+            <p><strong>Interactive mode:</strong></p>
+            <div class="code-block">./setup-enhanced-chat-complete-auto.sh</div>
+
+            <p><strong>Non-interactive mode (for CI/CD):</strong></p>
+            <div class="code-block">./setup-enhanced-chat-complete-auto.sh [ORG] [CHANNEL] [DEPLOYMENT] [HOST_DOMAIN] [REPO_PATH]
+
+# Example
+./setup-enhanced-chat-complete-auto.sh \
+  my-orgfarm \
+  MIAW_Channel_Service_Cloud \
+  MyTestDeployment \
+  git.soma.salesforce.com \
+  ~/enhanced-chat</div>
         </div>
 
         <!-- Summary Table -->
@@ -162,32 +188,6 @@
                     <td><span class="badge badge-medium">MEDIUM</span></td>
                 </tr>
             </table>
-        </div>
-
-        <!-- Package Contents -->
-        <div class="section" id="package-contents">
-            <h2>📦 Package Contents</h2>
-            <ul class="checklist">
-                <li><code>setup-enhanced-chat-complete-auto.sh</code> - Main script (48KB)</li>
-                <li><code>republish-enhanced-chat.sh</code> - Helper script (3.6KB)</li>
-                <li><code>ENHANCED_CHAT_SETUP_GUIDE.md</code> - User guide (12KB)</li>
-                <li><code>enhanced-chat-setup-demo.html</code> - Visual demo (9.9KB)</li>
-            </ul>
-
-            <h3>Quick Start</h3>
-            <p><strong>Interactive mode:</strong></p>
-            <div class="code-block">./setup-enhanced-chat-complete-auto.sh</div>
-
-            <p><strong>Non-interactive mode (for CI/CD):</strong></p>
-            <div class="code-block">./setup-enhanced-chat-complete-auto.sh [ORG] [CHANNEL] [DEPLOYMENT] [HOST_DOMAIN] [REPO_PATH]
-
-# Example
-./setup-enhanced-chat-complete-auto.sh \
-  my-orgfarm \
-  MIAW_Channel_Service_Cloud \
-  MyTestDeployment \
-  git.soma.salesforce.com \
-  ~/enhanced-chat</div>
         </div>
 
         <!-- Detailed Test Cases -->
