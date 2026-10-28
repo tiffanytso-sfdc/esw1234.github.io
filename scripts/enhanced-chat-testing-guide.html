@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Chat Setup Script - Testing Guide</title>
+    <title>Enhanced Chat Setup Script - Comprehensive Testing Guide</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -17,60 +17,155 @@
         .header h1 { font-size: 48px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
         .section { background: white; border-radius: 16px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .section h2 { color: #2d3748; margin-bottom: 20px; font-size: 32px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .section h3 { color: #4a5568; margin: 30px 0 15px 0; font-size: 24px; }
+        .section h4 { color: #718096; margin: 20px 0 10px 0; font-size: 18px; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
         .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; text-align: center; }
         .stat-number { font-size: 36px; font-weight: bold; margin-bottom: 5px; }
         table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
         th { background: #f7fafc; font-weight: bold; color: #2d3748; }
-        code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #c05621; }
-        .checklist { margin: 15px 0; padding-left: 20px; }
+        code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #c05621; font-size: 14px; }
+        .code-block { background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; margin: 15px 0; overflow-x: auto; }
+        .checklist { margin: 15px 0; padding-left: 20px; line-height: 1.8; }
+        .test-case { background: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea; }
+        .critical { border-left-color: #e53e3e; }
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 8px; }
+        .badge-critical { background: #fed7d7; color: #9b2c2c; }
+        .badge-high { background: #feebc8; color: #c05621; }
+        .badge-medium { background: #bee3f8; color: #2c5282; }
+        ol { line-height: 1.8; padding-left: 25px; margin: 15px 0; }
+        p { line-height: 1.6; margin: 10px 0; }
+        .toc { background: #edf2f7; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .toc a { color: #667eea; text-decoration: none; display: block; padding: 5px 0; }
+        .toc a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🧪 Enhanced Chat Setup Script</h1>
-            <p>Testing Guide & Documentation v2.1</p>
+            <p>Comprehensive Testing Guide & Documentation v2.1</p>
         </div>
 
+        <!-- Overview Section -->
         <div class="section">
             <h2>📖 Overview</h2>
             <div class="stats-grid">
                 <div class="stat-card"><div class="stat-number">11</div><div>Fixes Implemented</div></div>
                 <div class="stat-card"><div class="stat-number">~1min</div><div>Setup Time</div></div>
                 <div class="stat-card"><div class="stat-number">95%</div><div>Time Saved</div></div>
+                <div class="stat-card"><div class="stat-number">6</div><div>Original Fixes</div></div>
+                <div class="stat-card"><div class="stat-number">5</div><div>New Fixes</div></div>
+                <div class="stat-card"><div class="stat-number">2</div><div>Critical Bugs</div></div>
             </div>
 
             <h3>What This Script Does</h3>
             <ul class="checklist">
-                <li>✅ Creates Enhanced Chat v2 deployments via Connect API</li>
+                <li>✅ Creates Enhanced Chat v2 (ECV2) deployments via Connect API</li>
                 <li>✅ Auto-generates and publishes Experience Sites</li>
-                <li>✅ Creates ready-to-use test pages</li>
-                <li>✅ Optionally pushes to GitHub Pages</li>
-                <li>✅ Handles errors gracefully</li>
+                <li>✅ Creates ready-to-use test pages with working snippets</li>
+                <li>✅ Optionally pushes to GitHub Pages for team sharing</li>
+                <li>✅ Handles errors gracefully with clear messages</li>
+                <li>✅ Works across all orgfarm types (pc-rnd, test1, etc.)</li>
             </ul>
+
+            <div class="toc">
+                <strong>Quick Navigation:</strong>
+                <a href="#fixes-summary">All 11 Fixes Summary</a>
+                <a href="#package-contents">Package Contents & Quick Start</a>
+                <a href="#detailed-tests">Detailed Test Cases</a>
+                <a href="#testing-checklist">Beta Testing Checklist</a>
+            </div>
         </div>
 
-        <div class="section">
+        <!-- Summary Table -->
+        <div class="section" id="fixes-summary">
             <h2>✅ All 11 Fixes (v2.1)</h2>
             <table>
-                <tr><th>#</th><th>Issue</th><th>Fix</th><th>Impact</th></tr>
-                <tr><td>1</td><td>OrgId length mismatch</td><td>Truncate to 15 chars</td><td>Fixes 400 errors on SSE/polling</td></tr>
-                <tr><td>2</td><td>Silent exits from set -e</td><td>Added error handling</td><td>Clear error messages</td></tr>
-                <tr><td>3</td><td>Default channel doesn't exist</td><td>Auto-detect first channel</td><td>Works with any orgfarm</td></tr>
-                <tr><td>4</td><td>Clone is SSH-only</td><td>3-tier fallback</td><td>Works without SSH keys</td></tr>
-                <tr><td>5</td><td>Wrong GitHub Pages URL</td><td>Handle both SSH and HTTPS</td><td>Correct URLs</td></tr>
-                <tr><td>6</td><td>Test instructions leak path</td><td>Domain-specific instructions</td><td>Privacy + clarity</td></tr>
-                <tr><td>7</td><td>Non-interactive mode prompts</td><td>Fail fast with error</td><td>No stuck prompts in CI/CD</td></tr>
-                <tr><td>8</td><td>Wrong site selected</td><td>Query by deployment relationship</td><td>Always correct site</td></tr>
-                <tr><td>9</td><td>SCRT2 URL only works for pc-rnd</td><td>Improved sed pattern</td><td>Works for all orgfarms</td></tr>
-                <tr><td>10</td><td>Snippet appears twice</td><td>Removed duplicate</td><td>Cleaner HTML</td></tr>
-                <tr><td>11</td><td>Guide doesn't mention master</td><td>Updated documentation</td><td>Complete info</td></tr>
+                <tr><th>#</th><th>Issue</th><th>Fix</th><th>Impact</th><th>Priority</th></tr>
+                <tr>
+                    <td>1</td>
+                    <td>OrgId length mismatch</td>
+                    <td>Truncate to 15 chars</td>
+                    <td>Fixes 400 errors on SSE/polling</td>
+                    <td><span class="badge badge-high">HIGH</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Silent exits from set -e</td>
+                    <td>Added error handling</td>
+                    <td>Clear error messages</td>
+                    <td><span class="badge badge-high">HIGH</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Default channel doesn't exist</td>
+                    <td>Auto-detect first channel</td>
+                    <td>Works with any orgfarm</td>
+                    <td><span class="badge badge-high">HIGH</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Clone is SSH-only</td>
+                    <td>3-tier fallback</td>
+                    <td>Works without SSH keys</td>
+                    <td><span class="badge badge-high">HIGH</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Wrong GitHub Pages URL</td>
+                    <td>Handle both SSH and HTTPS</td>
+                    <td>Correct URLs</td>
+                    <td><span class="badge badge-medium">MEDIUM</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Test instructions leak path</td>
+                    <td>Domain-specific instructions</td>
+                    <td>Privacy + clarity</td>
+                    <td><span class="badge badge-medium">MEDIUM</span></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Non-interactive mode prompts</td>
+                    <td>Fail fast with error</td>
+                    <td>No stuck prompts in CI/CD</td>
+                    <td><span class="badge badge-high">HIGH</span></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Wrong site selected</td>
+                    <td>Query by deployment relationship</td>
+                    <td>Always correct site</td>
+                    <td><span class="badge badge-critical">CRITICAL</span></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>SCRT2 URL only works for pc-rnd</td>
+                    <td>Improved sed pattern</td>
+                    <td>Works for all orgfarms</td>
+                    <td><span class="badge badge-critical">CRITICAL</span></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Snippet appears twice</td>
+                    <td>Removed duplicate</td>
+                    <td>Cleaner HTML</td>
+                    <td><span class="badge badge-medium">MEDIUM</span></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Guide doesn't mention master</td>
+                    <td>Updated documentation</td>
+                    <td>Complete info</td>
+                    <td><span class="badge badge-medium">MEDIUM</span></td>
+                </tr>
             </table>
         </div>
 
-        <div class="section">
+        <!-- Package Contents -->
+        <div class="section" id="package-contents">
             <h2>📦 Package Contents</h2>
             <ul class="checklist">
                 <li><code>setup-enhanced-chat-complete-auto.sh</code> - Main script (48KB)</li>
@@ -81,20 +176,394 @@
 
             <h3>Quick Start</h3>
             <p><strong>Interactive mode:</strong></p>
-            <code>./setup-enhanced-chat-complete-auto.sh</code>
+            <div class="code-block">./setup-enhanced-chat-complete-auto.sh</div>
 
-            <p style="margin-top: 20px;"><strong>Non-interactive:</strong></p>
-            <code>./setup-enhanced-chat-complete-auto.sh [ORG] [CHANNEL] [DEPLOYMENT] [HOST_DOMAIN]</code>
+            <p><strong>Non-interactive mode (for CI/CD):</strong></p>
+            <div class="code-block">./setup-enhanced-chat-complete-auto.sh [ORG] [CHANNEL] [DEPLOYMENT] [HOST_DOMAIN] [REPO_PATH]
 
-            <h3>Testing Checklist for Beta Testers</h3>
+# Example
+./setup-enhanced-chat-complete-auto.sh \
+  my-orgfarm \
+  MIAW_Channel_Service_Cloud \
+  MyTestDeployment \
+  git.soma.salesforce.com \
+  ~/enhanced-chat</div>
+        </div>
+
+        <!-- Detailed Test Cases -->
+        <div class="section" id="detailed-tests">
+            <h2>🔍 Detailed Test Cases</h2>
+            <p>Each fix below includes reproduction steps, expected behavior, and verification checklist.</p>
+
+            <!-- Fix #1 -->
+            <div class="test-case">
+                <h3>Fix #1: OrgId Length Mismatch <span class="badge badge-high">HIGH</span></h3>
+                <h4>Problem</h4>
+                <p>The script was using 18-character OrgIds in test pages, but the ECV2 widget expects 15-character OrgIds. This caused 400 Bad Request errors on SSE connection and polling endpoints.</p>
+
+                <h4>Test Case 1.1: Verify OrgId Truncation</h4>
+                <ol>
+                    <li>Run the script and let it create a test page</li>
+                    <li>Open the generated <code>test-enhanced-chat-*.html</code> file</li>
+                    <li>Find the <code>embeddedservice_bootstrap.init()</code> call</li>
+                    <li>Verify the first parameter (OrgId) is exactly 15 characters</li>
+                </ol>
+                <p><strong>Expected:</strong> <code>'00Dfi700008S6gz'</code> (15 chars)</p>
+                <p><strong>Not:</strong> <code>'00Dfi700008S6gzEAC'</code> (18 chars)</p>
+
+                <h4>Test Case 1.2: Widget Functionality</h4>
+                <ol>
+                    <li>Open test page in browser (via correct domain)</li>
+                    <li>Wait for chat button to appear</li>
+                    <li>Click button and send a test message</li>
+                    <li>Check browser console for errors</li>
+                </ol>
+                <p><strong>Expected:</strong> No 400 errors on <code>/sse</code> or <code>/poll</code> endpoints</p>
+            </div>
+
+            <!-- Fix #2 -->
+            <div class="test-case">
+                <h3>Fix #2: Silent Exits from set -e <span class="badge badge-high">HIGH</span></h3>
+                <h4>Problem</h4>
+                <p>The script had <code>set -e</code> which caused it to exit immediately on any error without showing what went wrong. Users saw "script stopped" with no explanation.</p>
+
+                <h4>Test Case 2.1: Error Messages Visible</h4>
+                <ol>
+                    <li>Run script with invalid org: <code>./setup-enhanced-chat-complete-auto.sh fake-org</code></li>
+                    <li>Observe the error output</li>
+                </ol>
+                <p><strong>Expected:</strong> Clear error message like "❌ Error: Could not authenticate org 'fake-org'"</p>
+                <p><strong>Not:</strong> Silent exit with no message</p>
+
+                <h4>Test Case 2.2: Manual Fix Instructions</h4>
+                <ol>
+                    <li>Trigger any error (invalid channel name, git conflict, etc.)</li>
+                    <li>Read the error output</li>
+                </ol>
+                <p><strong>Expected:</strong> Error includes "To fix manually:" section with actionable steps</p>
+            </div>
+
+            <!-- Fix #3 -->
+            <div class="test-case">
+                <h3>Fix #3: Default Channel Doesn't Exist <span class="badge badge-high">HIGH</span></h3>
+                <h4>Problem</h4>
+                <p>Script defaulted to <code>MIAW_Channel_Service_Cloud</code> which doesn't exist in many orgfarms, causing failures.</p>
+
+                <h4>Test Case 3.1: Channel Auto-Detection</h4>
+                <ol>
+                    <li>Use an orgfarm without the default channel</li>
+                    <li>Run script in interactive mode</li>
+                    <li>When prompted for channel, press Enter (accept default)</li>
+                </ol>
+                <p><strong>Expected:</strong> Script detects available channels and uses the first one found</p>
+                <p><strong>Output should show:</strong> "Looking for MessagingChannels in org... Found channels: [list]"</p>
+
+                <h4>Test Case 3.2: No Channels Available</h4>
+                <ol>
+                    <li>Use an org with no messaging channels</li>
+                    <li>Run the script</li>
+                </ol>
+                <p><strong>Expected:</strong> Clear error: "No MessagingChannels found in this org. Please create one first."</p>
+            </div>
+
+            <!-- Fix #4 -->
+            <div class="test-case">
+                <h3>Fix #4: Clone is SSH-Only <span class="badge badge-high">HIGH</span></h3>
+                <h4>Problem</h4>
+                <p>Script only tried SSH for cloning enhanced-chat repo. Failed for users without SSH keys configured.</p>
+
+                <h4>Test Case 4.1: Clone Without SSH Keys</h4>
+                <ol>
+                    <li>Remove or rename your SSH key: <code>mv ~/.ssh/id_rsa ~/.ssh/id_rsa.backup</code></li>
+                    <li>Delete enhanced-chat repo if exists: <code>rm -rf ~/enhanced-chat</code></li>
+                    <li>Run script and choose to create GitHub Pages test page</li>
+                    <li>Observe clone attempt</li>
+                    <li>Restore SSH key: <code>mv ~/.ssh/id_rsa.backup ~/.ssh/id_rsa</code></li>
+                </ol>
+                <p><strong>Expected:</strong> Script tries SSH first, falls back to HTTPS, successfully clones</p>
+                <p><strong>Output should show:</strong> "SSH failed, trying HTTPS..." then "✅ Cloned enhanced-chat repo"</p>
+
+                <h4>Test Case 4.2: Clone Fallback Order</h4>
+                <p>Script should try in this order:</p>
+                <ol>
+                    <li>SSH: <code>git@git.soma.salesforce.com:embedded-service-for-web/enhanced-chat.git</code></li>
+                    <li>HTTPS: <code>https://git.soma.salesforce.com/embedded-service-for-web/enhanced-chat.git</code></li>
+                    <li>Manual instructions if both fail</li>
+                </ol>
+            </div>
+
+            <!-- Fix #5 -->
+            <div class="test-case">
+                <h3>Fix #5: Wrong GitHub Pages URL <span class="badge badge-medium">MEDIUM</span></h3>
+                <h4>Problem</h4>
+                <p>Script assumed SSH remote and generated incorrect GitHub Pages URLs for HTTPS remotes.</p>
+
+                <h4>Test Case 5.1: HTTPS Remote URL</h4>
+                <ol>
+                    <li>Clone repo with HTTPS: <code>git clone https://git.soma.salesforce.com/embedded-service-for-web/enhanced-chat.git</code></li>
+                    <li>Run script with this repo</li>
+                    <li>Check the final GitHub Pages URL shown</li>
+                </ol>
+                <p><strong>Expected:</strong> Correct URL format regardless of remote type</p>
+                <p><strong>Format:</strong> <code>https://git.soma.salesforce.com/pages/embedded-service-for-web/enhanced-chat/pages/[username]/ec-*.html</code></p>
+
+                <h4>Test Case 5.2: SSH Remote URL</h4>
+                <ol>
+                    <li>Clone repo with SSH: <code>git clone git@git.soma.salesforce.com:embedded-service-for-web/enhanced-chat.git</code></li>
+                    <li>Run script with this repo</li>
+                    <li>Check the final GitHub Pages URL shown</li>
+                </ol>
+                <p><strong>Expected:</strong> Same correct URL format as Test 5.1</p>
+            </div>
+
+            <!-- Fix #6 -->
+            <div class="test-case">
+                <h3>Fix #6: Test Instructions Leak Path <span class="badge badge-medium">MEDIUM</span></h3>
+                <h4>Problem</h4>
+                <p>Test page HTML included user's full local file path in testing instructions, leaking directory structure.</p>
+
+                <h4>Test Case 6.1: GitHub Pages Domain Instructions</h4>
+                <ol>
+                    <li>Run script with <code>hostDomain = git.soma.salesforce.com</code></li>
+                    <li>Open generated test page HTML in editor</li>
+                    <li>Find the "How to Test" section</li>
+                </ol>
+                <p><strong>Expected:</strong> Instructions say "must push to GitHub Pages" - no file paths mentioned</p>
+
+                <h4>Test Case 6.2: Custom Domain Instructions</h4>
+                <ol>
+                    <li>Run script with <code>hostDomain = test.example.com</code></li>
+                    <li>Open generated test page HTML in editor</li>
+                    <li>Find the "How to Test" section</li>
+                </ol>
+                <p><strong>Expected:</strong> Instructions show <code>/etc/hosts</code> setup and localhost server - no user's file paths</p>
+            </div>
+
+            <!-- Fix #7 -->
+            <div class="test-case">
+                <h3>Fix #7: Non-Interactive Mode Prompts <span class="badge badge-high">HIGH</span></h3>
+                <h4>Problem</h4>
+                <p>When all args provided, script still prompted user for GitHub Pages push decision, blocking CI/CD pipelines.</p>
+
+                <h4>Test Case 7.1: Full Non-Interactive Run</h4>
+                <ol>
+                    <li>Run script with all 5 parameters:
+                        <div class="code-block">./setup-enhanced-chat-complete-auto.sh \
+  my-orgfarm \
+  MIAW_Channel_Service_Cloud \
+  TestDeploy \
+  git.soma.salesforce.com \
+  ~/enhanced-chat</div>
+                    </li>
+                    <li>Script should run without any prompts</li>
+                </ol>
+                <p><strong>Expected:</strong> Zero user prompts, completes automatically</p>
+
+                <h4>Test Case 7.2: Partial Args Error</h4>
+                <ol>
+                    <li>Run script with only 3 parameters:
+                        <div class="code-block">./setup-enhanced-chat-complete-auto.sh my-orgfarm MIAW_Channel_Service_Cloud TestDeploy</div>
+                    </li>
+                </ol>
+                <p><strong>Expected:</strong> Error message: "Usage: script.sh [ORG] [CHANNEL] [DEPLOYMENT] [HOST_DOMAIN] [REPO_PATH]"</p>
+                <p><strong>Not:</strong> Script prompting for missing arguments</p>
+            </div>
+
+            <!-- Fix #8 -->
+            <div class="test-case critical">
+                <h3>Fix #8: Wrong Site Selected <span class="badge badge-critical">CRITICAL</span></h3>
+                <h4>Problem</h4>
+                <p>Script queried sites by name pattern which could match multiple sites. Used wrong site URL in snippet, causing widget to fail completely.</p>
+
+                <h4>Test Case 8.1: Verify Correct Site Relationship</h4>
+                <ol>
+                    <li>Create a deployment named <code>TestSite</code></li>
+                    <li>Check the generated test page's site URL</li>
+                    <li>In org, query:
+                        <div class="code-block">SELECT Id, Site, SiteUrl FROM EmbeddedServiceConfig WHERE DeveloperName = 'TestSite'</div>
+                    </li>
+                    <li>Compare the SiteUrl from query with URL in test page</li>
+                </ol>
+                <p><strong>Expected:</strong> URLs match exactly</p>
+                <p><strong>Query used:</strong> <code>SELECT DeveloperName, SiteUrl FROM Network WHERE Id IN (SELECT Site FROM EmbeddedServiceConfig WHERE Id = '[CONFIG_ID]')</code></p>
+
+                <h4>Test Case 8.2: Multiple Sites with Similar Names</h4>
+                <ol>
+                    <li>Create deployment named <code>Test</code></li>
+                    <li>Verify site selection is correct even if other sites exist with names like <code>ESW_Test_Old</code>, <code>ESW_Testing_123</code></li>
+                </ol>
+                <p><strong>Expected:</strong> Script selects the site specifically linked to this deployment, not a name-pattern match</p>
+            </div>
+
+            <!-- Fix #9 -->
+            <div class="test-case critical">
+                <h3>Fix #9: SCRT2 URL Only Works for pc-rnd <span class="badge badge-critical">CRITICAL</span></h3>
+                <h4>Problem</h4>
+                <p>SCRT2 URL sed pattern only matched <code>.pc-rnd.</code> domains. Failed for <code>.test1.</code>, <code>.test2.</code>, etc., causing widget initialization to fail.</p>
+
+                <h4>Test Case 9.1: pc-rnd Orgfarm</h4>
+                <ol>
+                    <li>Use orgfarm with URL like <code>orgfarm-abc123.pc-rnd.my.salesforce.com</code></li>
+                    <li>Run script</li>
+                    <li>Check SCRT2 URL in test page</li>
+                </ol>
+                <p><strong>Expected:</strong> <code>https://orgfarm-abc123.pc-rnd.salesforce-scrt.com</code></p>
+
+                <h4>Test Case 9.2: test1 Orgfarm</h4>
+                <ol>
+                    <li>Use orgfarm with URL like <code>orgfarm-xyz789.test1.my.salesforce.com</code></li>
+                    <li>Run script</li>
+                    <li>Check SCRT2 URL in test page</li>
+                </ol>
+                <p><strong>Expected:</strong> <code>https://orgfarm-xyz789.test1.salesforce-scrt.com</code></p>
+                <p><strong>Pattern:</strong> Preserves the subdomain environment (pc-rnd, test1, test2, etc.)</p>
+
+                <h4>Test Case 9.3: Widget Loads Successfully</h4>
+                <ol>
+                    <li>Open test page from test1 orgfarm in browser</li>
+                    <li>Check browser console</li>
+                </ol>
+                <p><strong>Expected:</strong> No SCRT2 connection errors, widget initializes</p>
+            </div>
+
+            <!-- Fix #10 -->
+            <div class="test-case">
+                <h3>Fix #10: Snippet Appears Twice <span class="badge badge-medium">MEDIUM</span></h3>
+                <h4>Problem</h4>
+                <p>Test page HTML showed the JavaScript snippet in both a display box and in the actual <code>&lt;script&gt;</code> tag, causing confusion.</p>
+
+                <h4>Test Case 10.1: Snippet Display</h4>
+                <ol>
+                    <li>Generate a test page</li>
+                    <li>Open in browser</li>
+                    <li>Count how many times you see the <code>embeddedservice_bootstrap.init()</code> snippet</li>
+                </ol>
+                <p><strong>Expected:</strong> Snippet appears once in a styled code display box for reference</p>
+                <p><strong>Not:</strong> Duplicate snippet or confusing display</p>
+
+                <h4>Test Case 10.2: Snippet Format</h4>
+                <p><strong>Expected display:</strong> Code block with syntax highlighting showing the snippet users should copy</p>
+            </div>
+
+            <!-- Fix #11 -->
+            <div class="test-case">
+                <h3>Fix #11: Guide Doesn't Mention Master <span class="badge badge-medium">MEDIUM</span></h3>
+                <h4>Problem</h4>
+                <p>Setup guide only mentioned <code>pages/[username]/</code> branch but didn't explain that users with write access push directly to <code>master</code>.</p>
+
+                <h4>Test Case 11.1: Documentation Completeness</h4>
+                <ol>
+                    <li>Open <code>ENHANCED_CHAT_SETUP_GUIDE.md</code></li>
+                    <li>Search for "master" or "write access"</li>
+                </ol>
+                <p><strong>Expected:</strong> Guide mentions both workflows:
+                    <ul>
+                        <li>Users without write access: push to <code>pages/[username]/</code></li>
+                        <li>Users with write access: push to <code>master</code> branch directly</li>
+                    </ul>
+                </p>
+
+                <h4>Test Case 11.2: Test Page Organization</h4>
+                <ol>
+                    <li>Read the "Organizing Test Pages" section in the guide</li>
+                </ol>
+                <p><strong>Expected:</strong> Explains the directory structure and mentions master branch for repo maintainers</p>
+            </div>
+        </div>
+
+        <!-- Beta Testing Checklist -->
+        <div class="section" id="testing-checklist">
+            <h2>🧪 Beta Testing Checklist</h2>
+            <p>Use this checklist to ensure comprehensive testing coverage across different scenarios.</p>
+
+            <h3>Environment Testing</h3>
             <ul class="checklist">
-                <li>✅ Test with different orgfarms</li>
-                <li>✅ Test with different channels</li>
-                <li>✅ Test without SSH keys</li>
-                <li>✅ Test with HTTPS git remotes</li>
-                <li>✅ Test custom domains</li>
-                <li>✅ Test edge cases (existing deployments, git conflicts)</li>
+                <li>☐ Test with pc-rnd orgfarm</li>
+                <li>☐ Test with test1 orgfarm</li>
+                <li>☐ Test with test2 orgfarm</li>
+                <li>☐ Test with different channel names</li>
+                <li>☐ Test with custom deployment names</li>
             </ul>
+
+            <h3>SSH & Git Testing</h3>
+            <ul class="checklist">
+                <li>☐ Test without SSH keys configured</li>
+                <li>☐ Test with SSH remote</li>
+                <li>☐ Test with HTTPS remote</li>
+                <li>☐ Test when enhanced-chat repo doesn't exist locally</li>
+                <li>☐ Test when enhanced-chat repo exists but is out of date</li>
+            </ul>
+
+            <h3>Domain Testing</h3>
+            <ul class="checklist">
+                <li>☐ Test with <code>git.soma.salesforce.com</code> (default)</li>
+                <li>☐ Test with <code>github.io</code></li>
+                <li>☐ Test with custom domain</li>
+                <li>☐ Test with <code>site.com</code></li>
+                <li>☐ Test with <code>force.com</code></li>
+            </ul>
+
+            <h3>Mode Testing</h3>
+            <ul class="checklist">
+                <li>☐ Test interactive mode (no args)</li>
+                <li>☐ Test non-interactive mode (all args)</li>
+                <li>☐ Test partial args (should error)</li>
+                <li>☐ Test default value acceptance (press Enter)</li>
+            </ul>
+
+            <h3>Error Handling Testing</h3>
+            <ul class="checklist">
+                <li>☐ Test with invalid org alias</li>
+                <li>☐ Test with non-existent channel</li>
+                <li>☐ Test with git conflicts</li>
+                <li>☐ Test with no channels in org</li>
+                <li>☐ Test with network disconnected (simulate)</li>
+            </ul>
+
+            <h3>Widget Functionality Testing</h3>
+            <ul class="checklist">
+                <li>☐ Verify chat button appears</li>
+                <li>☐ Verify button is clickable</li>
+                <li>☐ Verify chat interface opens</li>
+                <li>☐ Verify messages can be sent</li>
+                <li>☐ Check browser console for errors</li>
+                <li>☐ Verify correct OrgId (15 chars)</li>
+                <li>☐ Verify correct site URL</li>
+                <li>☐ Verify correct SCRT2 URL</li>
+            </ul>
+
+            <h3>Documentation Testing</h3>
+            <ul class="checklist">
+                <li>☐ Follow setup guide step-by-step</li>
+                <li>☐ Verify all code examples work</li>
+                <li>☐ Check for typos or unclear instructions</li>
+                <li>☐ Verify troubleshooting section helps</li>
+            </ul>
+
+            <h3>Edge Cases</h3>
+            <ul class="checklist">
+                <li>☐ Deployment name with spaces</li>
+                <li>☐ Deployment name with special characters</li>
+                <li>☐ Very long deployment name</li>
+                <li>☐ Multiple deployments with similar names</li>
+                <li>☐ Running script twice in a row</li>
+                <li>☐ Deleting deployment and recreating with same name</li>
+            </ul>
+        </div>
+
+        <!-- Reporting Issues -->
+        <div class="section">
+            <h2>🐛 Reporting Issues</h2>
+            <p>If you encounter any bugs or edge cases, please report them with:</p>
+            <ol>
+                <li><strong>Environment:</strong> Orgfarm type (pc-rnd/test1/etc.), OS, shell version</li>
+                <li><strong>Command:</strong> Exact command you ran</li>
+                <li><strong>Expected behavior:</strong> What should have happened</li>
+                <li><strong>Actual behavior:</strong> What actually happened</li>
+                <li><strong>Error output:</strong> Full error message or screenshot</li>
+                <li><strong>Logs:</strong> Any relevant console output or browser console errors</li>
+            </ol>
+            <p><strong>Contact:</strong> Comment in the announcement thread or reach out directly</p>
         </div>
 
         <div class="header" style="margin-top: 40px;">
